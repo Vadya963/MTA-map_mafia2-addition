@@ -1,2 +1,2 @@
-# MTA-map_mafia2-addition
+# Дополнение к карте
  cars, skins, weapons, hud
