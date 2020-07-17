@@ -1,23 +1,52 @@
 local screenWidth, screenHeight = guiGetScreenSize ( )
 local text_area = false
+local ud_timer = false
 
-local hillwood = createColPolygon( 0.1240234375,0.5068359375, 614.328125,1082.7919921875, 525.6923828125,1152.306640625, -34.779296875,1162.7958984375, -41.5517578125,1448.0283203125, 200.439453125,1683.51953125, 828.79296875,1683.6669921875, 825.9580078125,1295.1865234375 )
+local hillwood = createColPolygon( 0,0, 614.328125,1082.7919921875, 525.6923828125,1152.306640625, -34.779296875,1162.7958984375, -41.5517578125,1448.0283203125, 200.439453125,1683.51953125, 828.79296875,1683.6669921875, 825.9580078125,1295.1865234375 )
+local riverside = createColPolygon( 0,0, -41.5517578125,1448.0283203125, -384.2705078125,1450.4951171875, -388.3857421875,2047.1533203125, 199.3310546875,2047.1533203125, 200.439453125,1683.51953125 )
+local dipton = createColPolygon( 0,0, -384.2705078125,1450.4951171875, -861.8134765625,1321.9931640625, -860.4423828125,1586.552734375, -971.58984375,1743.1201171875, -971.58984375,2047.1533203125, -388.3857421875,2047.1533203125 )
+local kingstone = createColPolygon( 0,0, -861.8134765625,1321.9931640625, -1076.68359375,1063.9453125, -1171.005859375,1073.392578125, -1428.58203125,1198.6689453125, -1424.3671875,1369.486328125, -1517.1923828125,1535.826171875, -1607.916015625,1535.8798828125, -2140.7763671875,2047.1533203125, -971.58984375,2047.1533203125, -971.58984375,1743.1201171875, -860.4423828125,1586.552734375 )
+local greenfield = createColPolygon( 0,0, -1076.68359375,1063.9453125, -1171.005859375,1073.392578125, -1428.58203125,1198.6689453125, -1424.3671875,1369.486328125, -1517.1923828125,1535.826171875, -1607.916015625,1535.8798828125, -2140.7763671875,2047.1533203125, -2140.7763671875,846.7646484375, -1696.48046875,847.09765625, -1691.7490234375,785.412109375, -1589.3857421875,802.85546875, -1589.7646484375,846.255859375, -1281.0869140625,845.3974609375, -1278.1787109375,682.791015625, -1076.68359375,684.9287109375 )
+local hunters = createColPolygon( 0,0, -2140.7763671875,846.7646484375, -1696.48046875,847.09765625, -1691.7490234375,785.412109375, -1589.3857421875,802.85546875, -1589.7646484375,846.255859375, -1281.0869140625,845.3974609375, -1278.1787109375,682.791015625, -1076.68359375,684.9287109375, -1076.68359375,87.8291015625, -1408.5732421875,88.6572265625, -1410.7861328125,184.853515625, -2140.7763671875,169.0947265625 )
+local sandisland = createColPolygon( 0,0, -1076.68359375,87.8291015625, -1408.5732421875,88.6572265625, -1410.7861328125,184.853515625, -2140.7763671875,169.0947265625, -2140.7763671875,-579.6142578125, -1728.78515625,-577.7021484375, -1732.6376953125,-467.4052734375, -1076.68359375,-467.861328125 )
+local highbrook = createColPolygon( 0,0, -34.779296875,1162.7958984375, -41.5517578125,1448.0283203125, -384.2705078125,1450.4951171875, -861.8134765625,1321.9931640625, -1076.68359375,1063.9453125, -232.1318359375,1074.1064453125 )
+local uppertown = createColPolygon( 0,0, -232.1318359375,1074.1064453125, -1076.68359375,1063.9453125, -1076.68359375,537.0439453125, -676.42578125,536.7998046875, -440.373046875,406.87109375, -224.9716796875,407.4375 )
+
 addEventHandler( "onClientColShapeHit", resourceRoot,
 function (theElement, matchingDimension) 
 --The source of this event is the colshape that was hit.
-	if not text_area then setTimer( function() text_area=false end, 5000, 1 ) end
+	if isTimer(ud_timer) then killTimer( ud_timer ) end
 
 	if hillwood == source then
 		text_area="Хилвуд"
+	elseif riverside == source then
+		text_area="Риверсайд"
+	elseif dipton == source then
+		text_area="Диптон"
+	elseif kingstone == source then
+		text_area="Кингстон"
+	elseif greenfield == source then
+		text_area="Гринфилд"
+	elseif hunters == source then
+		text_area="Хантерс-Пойнт"
+	elseif sandisland == source then
+		text_area="Сэнд-Айленд"
+	elseif highbrook == source then
+		text_area="Хайбрук"
+	elseif uppertown == source then
+		text_area="Аптаун"
 	end
+
+	ud_timer = setTimer( function() text_area=false end, 5000, 1 )
 end)
 
 addEventHandler( "onClientRender", getRootElement(), 
 function () 
 --The source of this event is the client's root element.
-	if text_area then 
+	if text_area and not getElementData(localPlayer, "radar_mafia2") then 
 		local dimension = dxGetTextWidth( text_area, 1*width_hd, "default-bold" )
-		dxDrawText( text_area, screenWidth-dimension-(((146*width_hd)-(30*width_hd)-dimension-5)/2), screenHeight-(146*width_hd)-15-(dimension/2)-wanted_hud, 0, 0, tocolor ( 255, 255, 255, 255 ), 1*width_hd, "default-bold" )
-		dxDrawImageSection(screenWidth-(30*width_hd)-dimension-5-(((146*width_hd)-(30*width_hd)-dimension-5)/2), screenHeight-(146*width_hd)-15-(30*width_hd)-wanted_hud, 30*width_hd, 30*width_hd, 264, 273, 31, 31, 'hud/hud2.png')
+		local dimension_h = dxGetFontHeight( 1*width_hd, "default-bold" )
+		dxdrawtext( text_area, screenWidth-dimension-(((146*width_hd)-(30*width_hd)-dimension-(5*width_hd))/2), screenHeight-(146*width_hd)-15-(30*width_hd)-wanted_hud+(dimension_h/2), 0, 0, tocolor ( 255, 255, 255, 255 ), 1*width_hd, "default-bold" )
+		dxDrawImageSection(screenWidth-(30*width_hd)-dimension-(5*width_hd)-(((146*width_hd)-(30*width_hd)-dimension-(5*width_hd))/2), screenHeight-(146*width_hd)-15-(30*width_hd)-wanted_hud, 30*width_hd, 30*width_hd, 264, 273, 31, 31, 'hud/hud2.png')
 	end
 end)
