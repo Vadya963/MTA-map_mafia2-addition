@@ -76,7 +76,7 @@ function ()
 	if text_area and not getElementData(localPlayer, "radar_mafia2") then 
 		local dimension = dxGetTextWidth( text_area, 1*width_hd, "default-bold" )
 		local dimension_h = dxGetFontHeight( 1*width_hd, "default-bold" )
-		dxdrawtext( text_area, screenWidth-20-dimension-(((146*width_hd)-(30*width_hd)-dimension-(5*width_hd))/2), screenHeight-(146*width_hd)-15-(30*width_hd)-wanted_hud+(dimension_h/2), 0, 0, tocolor ( 255, 255, 255, 255 ), 1*width_hd, "default-bold" )
-		dxDrawImageSection(screenWidth-20-(30*width_hd)-dimension-(5*width_hd)-(((146*width_hd)-(30*width_hd)-dimension-(5*width_hd))/2), screenHeight-(146*width_hd)-15-(30*width_hd)-wanted_hud, 30*width_hd, 30*width_hd, 264, 273, 31, 31, 'hud/hud2.png')
+		dxdrawtext( text_area, screenWidth-20-dimension-(5*width_hd)-(30*width_hd), screenHeight-(146*width_hd)-15-(30*width_hd)-wanted_hud+(dimension_h/2), 0, 0, tocolor ( 255, 255, 255, 255 ), 1*width_hd, "default-bold" )
+		dxDrawImageSection(screenWidth-20-(30*width_hd), screenHeight-(146*width_hd)-15-(30*width_hd)-wanted_hud, 30*width_hd, 30*width_hd, 264, 273, 31, 31, 'hud/hud2.png')
 	end
 end)
