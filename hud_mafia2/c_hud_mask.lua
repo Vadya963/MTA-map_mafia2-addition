@@ -71,7 +71,7 @@ local screenWidth, screenHeight = guiGetScreenSize ( )
 local sx,sy = screenWidth, screenHeight
 local width_map = 146
 local width_speed = 105
-local posx = screenWidth-(width_map*width_hd)+10
+local posx = screenWidth-20-(width_map*width_hd)+10
 local posy = screenHeight-(width_map*width_hd)-5
 local height = width_map*width_hd-20
 local centerleft = posx + height / 2
@@ -94,12 +94,12 @@ addEventHandler( "onClientRender", root,
 				speed_car = getSpeed(vehicle)*2+40
 			end
 
-			dxDrawImage ( screenWidth-width_new-width_map*width_hd, screenHeight-width_new-15, width_new, width_new, "hud/speed_v.png" )
-			dxDrawImage ( screenWidth-width_new-width_map*width_hd, screenHeight-width_new-15, width_new, width_new, "hud/arrow_speed_v.png", speed_car )
-			dxDrawImage ( (screenWidth-width_new-width_map*width_hd), screenHeight-width_new-15, width_new, width_new, "hud/fuel_v.png", 30.0-(fuel*1.2) )
+			dxDrawImage ( screenWidth-20-width_new-width_map*width_hd, screenHeight-width_new-15, width_new, width_new, "hud/speed_v.png" )
+			dxDrawImage ( screenWidth-20-width_new-width_map*width_hd, screenHeight-width_new-15, width_new, width_new, "hud/arrow_speed_v.png", speed_car )
+			dxDrawImage ( (screenWidth-20-width_new-width_map*width_hd), screenHeight-width_new-15, width_new, width_new, "hud/fuel_v.png", 30.0-(fuel*1.2) )
 
 			if fuel <= 15 then
-				dxDrawImage ( screenWidth-width_new-width_map*width_hd, screenHeight-width_new-15, width_new, width_new, "hud/low_fuel.png" )
+				dxDrawImage ( screenWidth-20-width_new-width_map*width_hd, screenHeight-width_new-15, width_new, width_new, "hud/low_fuel.png" )
 			end
 		end
 
@@ -129,12 +129,12 @@ addEventHandler( "onClientRender", root,
 		-- Draw
 		--
 		local width_new = width_map*width_hd
-		dxDrawImage( screenWidth-width_new, screenHeight-width_new-15, width_new, width_new, "images/radar_ver1.png", 0,0,0, tocolor(255,255,255,255) )
-		dxDrawCircle ( (screenWidth-width_new)+(width_new/2), (screenHeight-width_new-15)+(width_new/2), 72*width_hd, 83.0, (-166.0/getPedMaxHealth(localPlayer))*getElementHealth(localPlayer)+83, tocolor( 111,154,104,255 ), tocolor( 111,154,104,255 ) )
-		dxDrawCircle ( (screenWidth-width_new)+(width_new/2), (screenHeight-width_new-15)+(width_new/2), 72*width_hd, 97.0, (166.0/100)*getPedArmor(localPlayer)+97, tocolor( 0, 102, 255,255 ), tocolor( 0, 102, 255,255 ) )
-		dxDrawImage( screenWidth-width_new+10, screenHeight-width_new-5, width_new-20, width_new-20, hudMaskShader, 0,0,0, tocolor(255,255,255,255) )
-		dxDrawImage( screenWidth-width_new, screenHeight-width_new-15, width_new, width_new, "images/radar_ver2.png", 0,0,0, tocolor(255,255,255,255) )
-		dxDrawImage( screenWidth-width_new, screenHeight-width_new-15, width_new, width_new, "images/pointer.png", camrot,0,0, tocolor(255,255,255,255) )
+		dxDrawImage( screenWidth-20-width_new, screenHeight-width_new-15, width_new, width_new, "images/radar_ver1.png", 0,0,0, tocolor(255,255,255,255) )
+		dxDrawCircle ( (screenWidth-20-width_new)+(width_new/2), (screenHeight-width_new-15)+(width_new/2), 72*width_hd, 83.0, (-166.0/getPedMaxHealth(localPlayer))*getElementHealth(localPlayer)+83, tocolor( 111,154,104,255 ), tocolor( 111,154,104,255 ) )
+		dxDrawCircle ( (screenWidth-20-width_new)+(width_new/2), (screenHeight-width_new-15)+(width_new/2), 72*width_hd, 97.0, (166.0/100)*getPedArmor(localPlayer)+97, tocolor( 0, 102, 255,255 ), tocolor( 0, 102, 255,255 ) )
+		dxDrawImage( screenWidth-20-width_new+10, screenHeight-width_new-5, width_new-20, width_new-20, hudMaskShader, 0,0,0, tocolor(255,255,255,255) )
+		dxDrawImage( screenWidth-20-width_new, screenHeight-width_new-15, width_new, width_new, "images/radar_ver2.png", 0,0,0, tocolor(255,255,255,255) )
+		dxDrawImage( screenWidth-20-width_new, screenHeight-width_new-15, width_new, width_new, "images/pointer.png", camrot,0,0, tocolor(255,255,255,255) )
 		
 		--blips
 		local px, py, pz = getElementPosition(lp)
@@ -170,6 +170,6 @@ addEventHandler( "onClientRender", root,
 				dxDrawImage(blipx, blipy, blipsize, blipsize, "images/blips/"..icon..".png", 0, 0, 0, tocolor(r,g,b,a))
 			end
 		end
-		dxDrawImage( screenWidth-(width_new/2)-(16*width_hd/2), screenHeight-(width_new/2)-(16*width_hd/2)-15, 16*width_hd, 16*width_hd, "images/blips/2.png", -playerrot+camrot,0,0, tocolor(255,255,255,255) )
+		dxDrawImage( screenWidth-20-(width_new/2)-(16*width_hd/2), screenHeight-(width_new/2)-(16*width_hd/2)-15, 16*width_hd, 16*width_hd, "images/blips/2.png", -playerrot+camrot,0,0, tocolor(255,255,255,255) )
 	end
 )
