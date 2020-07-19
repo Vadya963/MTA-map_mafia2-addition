@@ -1,2 +1,2 @@
 # Дополнение к карте
- cars, skins, weapons, hud
+cars, skins, weapons, hud, radio

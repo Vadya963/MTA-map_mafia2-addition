@@ -29,6 +29,7 @@ local pixelsPerMeter                    = screenH/6000
 local imageOwnerResource                = getThisResource()
 
 toggleControl("radar",false)
+setElementData(localPlayer, "radar_mafia2", toggle)
 
 local abs=math.abs
 

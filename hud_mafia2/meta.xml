@@ -10,6 +10,8 @@
 	<script src="theft_car_m2_c.lua" type="client"/>
 	<script src="server_fun.lua"/>
 	<script src="area_c.lua" type="client"/>
+	<script src="hud_name_car_c.lua" type="client"/>
+	<script src="radio_car_c.lua" type="client"/>
 
 	<script src="c_hud_mask.lua" type="client" validate="false"/>
 	<file src="hud_mask.fx" type="client" />

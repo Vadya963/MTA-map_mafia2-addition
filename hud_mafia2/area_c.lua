@@ -25,6 +25,8 @@ local millville_n = createColPolygon( 0,0, 1415.9013671875,127.5068359375, 472.0
 addEventHandler( "onClientColShapeHit", resourceRoot,
 function (theElement, matchingDimension) 
 --The source of this event is the colshape that was hit.
+	if getElementType( theElement ) ~= "player" then return end
+	
 	if isTimer(ud_timer) then killTimer( ud_timer ) end
 
 	if hillwood == source then
@@ -67,7 +69,10 @@ function (theElement, matchingDimension)
 		text_area="Северный Милвилл"
 	end
 
-	ud_timer = setTimer( function() text_area=false end, 5000, 1 )
+	ud_timer = setTimer( function() 
+		text_area = false
+		area_hud = 0
+	end, 5000, 1 )
 end)
 
 addEventHandler( "onClientRender", getRootElement(), 
@@ -76,6 +81,7 @@ function ()
 	if text_area and not getElementData(localPlayer, "radar_mafia2") then 
 		local dimension = dxGetTextWidth( text_area, 1*width_hd, "default-bold" )
 		local dimension_h = dxGetFontHeight( 1*width_hd, "default-bold" )
+		area_hud = (30*width_hd)+5
 		dxdrawtext( text_area, screenWidth-20-dimension-(5*width_hd)-(30*width_hd), screenHeight-(146*width_hd)-15-(30*width_hd)-wanted_hud+(dimension_h/2), 0, 0, tocolor ( 255, 255, 255, 255 ), 1*width_hd, "default-bold" )
 		dxDrawImageSection(screenWidth-20-(30*width_hd), screenHeight-(146*width_hd)-15-(30*width_hd)-wanted_hud, 30*width_hd, 30*width_hd, 264, 273, 31, 31, 'hud/hud2.png')
 	end
