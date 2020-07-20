@@ -2,7 +2,6 @@ local table_radio = {
 	["40"] = {
 		["empire"] = {
 			"boogie_woogie_bugle_boy",
-			"happiness_is_a_thing_called_joe",
 			"rum_and_coca_cola",
 			"sing_sing_sing_bg",
 			"strip_polka_as",
@@ -55,7 +54,6 @@ local table_radio = {
 			"stringing_the_blues_",
 			"belleville",
 			"youre_driving_me_crazy_dr",
-			"the_best_things_in_life_are_free",
 			"goin_places",
 			"blue_skies",
 		},
@@ -140,37 +138,50 @@ local table_radio = {
 }
 
 local radio_name = {
-	[-3] = "Радио Дельта",
-	[-2] = "Радио Классика Эмпайр",
-	[-1] = "Центральное радио Эмпайр",
-	[0] = "Радио Выкл",
-	[1] = "Радио Дельта",
-	[2] = "Радио Классика Эмпайр",
-	[3] = "Центральное радио Эмпайр",
+	[-3] = {"Радио Дельта","delta"},
+	[-2] = {"Радио Классика Эмпайр","classic"},
+	[-1] = {"Центральное радио Эмпайр","empire"},
+	[0] = {"Радио Выкл","none"},
+	[1] = {"Радио Дельта","delta"},
+	[2] = {"Радио Классика Эмпайр","classic"},
+	[3] = {"Центральное радио Эмпайр","empire"},
 }
-local radio_state = 0
+local radio_station = 0
 local radio_season = "all"--40,50,all
-local sound = false
+local sound = {
+	["delta"] = false,
+	["classic"] = false,
+	["empire"] = false,
+}
 
 local screenWidth, screenHeight = guiGetScreenSize ( )
 local text_radio = false
 local ud_timer = false
 
 function setRadio(wave_radio)
+	for k,v in pairs(sound) do
+		if v then
+			setSoundVolume( v, 0.0 )
+		end
+	end
+
 	if wave_radio == 0 then
-		if isElement(sound) then destroyElement( sound ) end
 		return
 	end
 
+	wave_radio = radio_name[wave_radio][2]
+
+	setSoundVolume( sound[wave_radio], 1.0 )
+end
+
+function setRadioRandom(wave_radio, reason)
+	local radio_station_name = 0
+	local wave_radio_number = wave_radio
 	local year = radio_season
 
-	if wave_radio == 1 or wave_radio == -3 then
-		wave_radio = "delta"
-	elseif wave_radio == 2 or wave_radio == -2 then
-		wave_radio = "classic"
-	elseif wave_radio == 3 or wave_radio == -1 then
-		wave_radio = "empire"
-	end
+	wave_radio = radio_name[wave_radio][2]
+
+	radio_station_name = radio_name[radio_station][2]
 
 	if radio_season == "all" then
 		local randomize = random(1,2)
@@ -182,21 +193,32 @@ function setRadio(wave_radio)
 	end
 
 	local music = random(1,#table_radio[year][wave_radio])
-	if isElement(sound) then destroyElement( sound ) end
-	sound = playSound( ":radio_mafia2/"..year.."/"..wave_radio.."/"..table_radio[year][wave_radio][music]..".mp3" )
+	
+	sound[wave_radio] = playSound( ":radio_mafia2/"..year.."/"..wave_radio.."/"..table_radio[year][wave_radio][music]..".mp3" )
+	if reason == "finished" and radio_station_name == wave_radio then
+		setSoundVolume( sound[wave_radio], 1.0 )
+	else
+		setSoundVolume( sound[wave_radio], 0.0 )
+	end
 
-	addEventHandler( "onClientSoundStopped", sound, 
+	addEventHandler( "onClientSoundStopped", sound[wave_radio],
 	function (reason) 
 	--The source of this event is the sound's element.
 		if reason == "finished" then
-			setRadio(radio_state)
+			setRadioRandom(wave_radio_number, reason)
 		end
 	end)
+
+	return sound[wave_radio]
 end
 
 addEventHandler( "onClientResourceStart", resourceRoot, 
 function (startedResource) 
 --The source of this event is the started resource's root element.
+	for i=1,3 do
+		setRadioRandom(i)
+	end
+
 	bindKey ( ",", "down", function ( ... )
 		local vehicle = getPedOccupiedVehicle ( localPlayer )
 		if vehicle then
@@ -207,15 +229,15 @@ function (startedResource)
 
 		if isTimer(ud_timer) then killTimer( ud_timer ) end
 
-		radio_state = radio_state-1
+		radio_station = radio_station-1
 
-		if radio_state == -4 then 
-			radio_state = 0
+		if radio_station == -4 then 
+			radio_station = 0
 		end
 
-		setRadio(radio_state)
+		setRadio(radio_station)
 
-		text_radio = radio_name[radio_state]
+		text_radio = radio_name[radio_station][1]
 
 		ud_timer = setTimer( function() 
 			text_radio = false
@@ -232,15 +254,15 @@ function (startedResource)
 		
 		if isTimer(ud_timer) then killTimer( ud_timer ) end
 
-		radio_state = radio_state+1
+		radio_station = radio_station+1
 
-		if radio_state == 4 then 
-			radio_state = 0
+		if radio_station == 4 then 
+			radio_station = 0
 		end
 
-		setRadio(radio_state)
+		setRadio(radio_station)
 
-		text_radio = radio_name[radio_state]
+		text_radio = radio_name[radio_station][1]
 
 		ud_timer = setTimer( function() 
 			text_radio = false
@@ -256,8 +278,8 @@ end)
 addEventHandler( "onClientVehicleExit", getRootElement(), 
 function (thePlayer, seat) 
 --The source of the event is the vehicle that the player exited.
-	radio_state = 0
-	setRadio(radio_state)
+	radio_station = 0
+	setRadio(radio_station)
 
 	text_radio = false
 end)
@@ -270,7 +292,7 @@ function ()
 		local dimension_h = dxGetFontHeight( 1*width_hd, "default-bold" )
 		dxdrawtext( text_radio, screenWidth-20-dimension-(5*width_hd)-(30*width_hd), screenHeight-(146*width_hd)-15-(30*width_hd)-wanted_hud-area_hud-name_car+(dimension_h/2), 0, 0, tocolor ( 255, 255, 255, 255 ), 1*width_hd, "default-bold" )
 		
-		if radio_state ~= 0 then
+		if radio_station ~= 0 then
 			dxDrawImageSection(screenWidth-20-(30*width_hd), screenHeight-(146*width_hd)-15-(30*width_hd)-wanted_hud-area_hud-name_car, 30*width_hd, 30*width_hd, 357, 334, 31, 31, 'hud/hud2.png')
 		else
 			dxDrawImageSection(screenWidth-20-(30*width_hd), screenHeight-(146*width_hd)-15-(30*width_hd)-wanted_hud-area_hud-name_car, 30*width_hd, 30*width_hd, 314, 365, 31, 31, 'hud/hud2.png')
