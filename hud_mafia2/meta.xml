@@ -2,6 +2,8 @@
 	<info description="Shader - HUD mask" author="ccw" version="0.0.1" type="script" />
 	<min_mta_version server="1.5.7" client="1.5.7" />
 
+	<include resource='radio_mafia2'/>
+
 	<script src="settings_c.lua" type="client"></script>
 
 	<script src="menu_m2.lua" type="client"/>
