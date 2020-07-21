@@ -78,7 +78,7 @@ end)
 addEventHandler( "onClientRender", getRootElement(), 
 function () 
 --The source of this event is the client's root element.
-	if text_area and not getElementData(localPlayer, "radar_mafia2") then 
+	if text_area and not getElementData(localPlayer, "radar_mafia2") and getElementInterior(localPlayer) == 0 and getElementDimension(localPlayer) == 0 then 
 		local dimension = dxGetTextWidth( text_area, 1*width_hd, "default-bold" )
 		local dimension_h = dxGetFontHeight( 1*width_hd, "default-bold" )
 		area_hud = (30*width_hd)+5
