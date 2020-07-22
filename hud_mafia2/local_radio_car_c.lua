@@ -175,13 +175,10 @@ function setRadio(wave_radio)
 end
 
 function setRadioRandom(wave_radio, reason)
-	local radio_station_name = 0
 	local wave_radio_number = wave_radio
 	local year = radio_season
 
 	wave_radio = radio_name[wave_radio][2]
-
-	radio_station_name = radio_name[radio_station][2]
 
 	if radio_season == "all" then
 		local randomize = random(1,2)
@@ -195,7 +192,7 @@ function setRadioRandom(wave_radio, reason)
 	local music = random(1,#table_radio[year][wave_radio])
 	
 	sound[wave_radio] = playSound( ":radio_mafia2/"..year.."/"..wave_radio.."/"..table_radio[year][wave_radio][music]..".mp3" )
-	if reason == "finished" and radio_station_name == wave_radio then
+	if reason == "finished" and radio_name[radio_station][2] == wave_radio then
 		setSoundVolume( sound[wave_radio], 1.0 )
 	else
 		setSoundVolume( sound[wave_radio], 0.0 )
