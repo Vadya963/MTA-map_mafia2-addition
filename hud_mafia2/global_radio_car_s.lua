@@ -196,6 +196,21 @@ function ()
 	end
 end)
 
+addEventHandler( "onElementDataChange", getRootElement(), 
+function (theKey, oldValue, newValue) 
+--source: The source of this event is the element whose element data changed.
+--client: The global variable is set to the client that called setElementData, or nil if it was called on the server.
+--sourceResource: The resource which changed the element data. (Only works in versions above 1.3.4-5937)
+--This event cannot be cancelled using cancelEvent. To reverse the effect, use setElementData with the old value.
+	if getElementType( source ) == "vehicle" and theKey == "radio" then
+		for k,v in pairs(getVehicleOccupants( source )) do
+			if k ~= 0 then
+				triggerClientEvent( v, "event_setRadio", client, getElementData( source, "radio" ) )
+			end
+		end
+	end
+end)
+
 setTimer( function ( ... )
 	for k,v in pairs({"delta","empire","classic"}) do
 		if (getTickCount()-sound[v][5])/1000 >= table_radio[sound[v][1]] [sound[v][2]] [sound[v][3]] [2] then

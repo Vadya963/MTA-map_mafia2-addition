@@ -34,6 +34,8 @@ function setRadio(wave_radio)
 		setSoundVolume( sound[wave_radio], 1.0 )
 	end
 end
+addEvent( "event_setRadio", true )
+addEventHandler( "event_setRadio", resourceRoot, setRadio )
 
 function setRadioSound(wave_radio,table)
 	if isElement(sound[wave_radio]) then destroyElement( sound[wave_radio] ) end
@@ -72,6 +74,7 @@ function (startedResource)
 		end
 
 		setRadio(radio_station)
+		setElementData( vehicle, "radio", radio_station )
 
 		text_radio = radio_name[radio_station][1]
 
@@ -97,6 +100,7 @@ function (startedResource)
 		end
 
 		setRadio(radio_station)
+		setElementData( vehicle, "radio", radio_station )
 
 		text_radio = radio_name[radio_station][1]
 
@@ -110,6 +114,8 @@ addEventHandler( "onClientVehicleEnter", getRootElement(),
 function (thePlayer, seat) 
 --The source of the event is the vehicle that the player entered.
 	setRadioChannel( 0 )
+	radio_station = getElementData( source, "radio" )
+	setRadio(radio_station or 0)
 end)
 addEventHandler( "onClientVehicleExit", getRootElement(), 
 function (thePlayer, seat) 
