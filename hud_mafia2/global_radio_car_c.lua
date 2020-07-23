@@ -114,8 +114,8 @@ addEventHandler( "onClientVehicleEnter", getRootElement(),
 function (thePlayer, seat) 
 --The source of the event is the vehicle that the player entered.
 	setRadioChannel( 0 )
-	radio_station = getElementData( source, "radio" )
-	setRadio(radio_station or 0)
+	radio_station = getElementData( source, "radio" ) or 0
+	setRadio(radio_station)
 end)
 addEventHandler( "onClientVehicleExit", getRootElement(), 
 function (thePlayer, seat) 
