@@ -70,11 +70,11 @@ addEventHandler( "onClientRender", getRootElement(),
 function () 
 --The source of this event is the client's root element.
 	if text_area and not getElementData(localPlayer, "radar_mafia2") then 
-		local dimension = dxGetTextWidth( text_area, 1*width_hd, "default-bold" )
-		local dimension_h = dxGetFontHeight( 1*width_hd, "default-bold" )
-		name_car = (30*width_hd)+5
-		dxdrawtext( text_area, screenWidth-20-dimension-(5*width_hd)-(30*width_hd), screenHeight-(146*width_hd)-15-(30*width_hd)-wanted_hud-area_hud+(dimension_h/2), 0, 0, tocolor ( 255, 255, 255, 255 ), 1*width_hd, "default-bold" )
-		dxDrawImageSection(screenWidth-20-(30*width_hd), screenHeight-(146*width_hd)-15-(30*width_hd)-wanted_hud-area_hud, 30*width_hd, 30*width_hd, 264, 304, 31, 31, 'hud/hud2.png', 0,0,0, tocolor ( 0, 255, 0, 255 ))
-		dxDrawImageSection(screenWidth-20-(28*width_hd), screenHeight-(146*width_hd)-15-(21*width_hd)-wanted_hud-area_hud, 26*width_hd, 12*width_hd, 483, 312, 27, 12, 'hud/hud2.png')
+		local dimension = dxGetTextWidth( text_area, 1*height_hd, "default-bold" )
+		local dimension_h = dxGetFontHeight( 1*height_hd, "default-bold" )
+		name_car = (30*height_hd)+5
+		dxdrawtext( text_area, screenWidth-20-dimension-(5*height_hd)-(30*height_hd), screenHeight-(146*height_hd)-15-(30*height_hd)-wanted_hud-area_hud+(dimension_h/2), 0, 0, tocolor ( 255, 255, 255, 255 ), 1*height_hd, "default-bold" )
+		dxDrawImageSection(screenWidth-20-(30*height_hd), screenHeight-(146*height_hd)-15-(30*height_hd)-wanted_hud-area_hud, 30*height_hd, 30*height_hd, 264, 304, 31, 31, 'hud/hud2.png', 0,0,0, tocolor ( 0, 255, 0, 255 ))
+		dxDrawImageSection(screenWidth-20-(28*height_hd), screenHeight-(146*height_hd)-15-(21*height_hd)-wanted_hud-area_hud, 26*height_hd, 12*height_hd, 483, 312, 27, 12, 'hud/hud2.png')
 	end
 end)

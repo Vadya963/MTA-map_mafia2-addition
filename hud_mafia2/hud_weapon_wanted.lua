@@ -27,17 +27,17 @@ function createText ()
 	local weaponpl = getPedWeapon(localPlayer)
 	if weaponpl and getElementData(root, "custom_weapon") and getElementData(root, "custom_weapon")[weaponpl] then
 		local v = getElementData(resourceRoot, "custom_weapon")[weaponpl]
-		dxDrawImageSection(50, screenHeight-50-v[6], v[5], v[6], v[3], v[4], v[5], v[6], 'hud/hud2.png')
+		dxDrawImageSection(50, screenHeight-50-(v[6]*height_hd), v[5]*height_hd, v[6]*height_hd, v[3], v[4], v[5], v[6], 'hud/hud2.png')
 		if weaponpl ~= 5 and weaponpl ~= 4 and weaponpl ~= 1 and weaponpl ~= 3 and weaponpl ~= 6 and weaponpl ~= 15 then
-			dxdrawtext ( getPedAmmoInClip(localPlayer).." | "..(getPedTotalAmmo(localPlayer)-getPedAmmoInClip(localPlayer)), 50+v[5], screenHeight-50-15, 0.0, 0.0, tocolor ( 255, 255, 255, 255 ), 1, "default-bold" )
+			dxdrawtext ( getPedAmmoInClip(localPlayer).." | "..(getPedTotalAmmo(localPlayer)-getPedAmmoInClip(localPlayer)), 50+(v[5]*height_hd), screenHeight-50-15, 0.0, 0.0, tocolor ( 255, 255, 255, 255 ), 1*height_hd, "default-bold" )
 		end
 	end
 
 	local wanted = getPlayerWantedLevel ( )
 	if wanted ~= 0 then
 		local v = wanted_img[wanted]
-		wanted_hud = (v[4]*width_hd)+10
-		dxDrawImageSection(screenWidth-20-(v[3]*width_hd), screenHeight-(146*width_hd)-15-5-(v[4]*width_hd), v[3]*width_hd, v[4]*width_hd, v[1], v[2], v[3], v[4], 'hud/hud2.png')
+		wanted_hud = (v[4]*height_hd)+10
+		dxDrawImageSection(screenWidth-20-(v[3]*height_hd), screenHeight-(146*height_hd)-15-5-(v[4]*height_hd), v[3]*height_hd, v[4]*height_hd, v[1], v[2], v[3], v[4], 'hud/hud2.png')
 	else
 		wanted_hud = 5
 	end

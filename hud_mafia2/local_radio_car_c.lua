@@ -285,14 +285,14 @@ addEventHandler( "onClientRender", getRootElement(),
 function () 
 --The source of this event is the client's root element.
 	if text_radio and not getElementData(localPlayer, "radar_mafia2") then 
-		local dimension = dxGetTextWidth( text_radio, 1*width_hd, "default-bold" )
-		local dimension_h = dxGetFontHeight( 1*width_hd, "default-bold" )
-		dxdrawtext( text_radio, screenWidth-20-dimension-(5*width_hd)-(30*width_hd), screenHeight-(146*width_hd)-15-(30*width_hd)-wanted_hud-area_hud-name_car+(dimension_h/2), 0, 0, tocolor ( 255, 255, 255, 255 ), 1*width_hd, "default-bold" )
+		local dimension = dxGetTextWidth( text_radio, 1*height_hd, "default-bold" )
+		local dimension_h = dxGetFontHeight( 1*height_hd, "default-bold" )
+		dxdrawtext( text_radio, screenWidth-20-dimension-(5*height_hd)-(30*height_hd), screenHeight-(146*height_hd)-15-(30*height_hd)-wanted_hud-area_hud-name_car+(dimension_h/2), 0, 0, tocolor ( 255, 255, 255, 255 ), 1*height_hd, "default-bold" )
 		
 		if radio_station ~= 0 then
-			dxDrawImageSection(screenWidth-20-(30*width_hd), screenHeight-(146*width_hd)-15-(30*width_hd)-wanted_hud-area_hud-name_car, 30*width_hd, 30*width_hd, 357, 334, 31, 31, 'hud/hud2.png')
+			dxDrawImageSection(screenWidth-20-(30*height_hd), screenHeight-(146*height_hd)-15-(30*height_hd)-wanted_hud-area_hud-name_car, 30*height_hd, 30*height_hd, 357, 334, 31, 31, 'hud/hud2.png')
 		else
-			dxDrawImageSection(screenWidth-20-(30*width_hd), screenHeight-(146*width_hd)-15-(30*width_hd)-wanted_hud-area_hud-name_car, 30*width_hd, 30*width_hd, 314, 365, 31, 31, 'hud/hud2.png')
+			dxDrawImageSection(screenWidth-20-(30*height_hd), screenHeight-(146*height_hd)-15-(30*height_hd)-wanted_hud-area_hud-name_car, 30*height_hd, 30*height_hd, 314, 365, 31, 31, 'hud/hud2.png')
 		end
 	end
 end)

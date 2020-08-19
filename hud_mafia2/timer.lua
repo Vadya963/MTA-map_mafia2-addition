@@ -1,6 +1,6 @@
 local screenWidth, screenHeight = guiGetScreenSize ( )
 local timer = {true, 10, 10}
-local width_new = 85*width_hd
+local width_new = 85*height_hd
 
 function timerm2(time)
 	timer[1] = true
@@ -32,7 +32,7 @@ function createText ()
 
 	if timer[1] then
 		dxDrawImage ( (screenWidth-width_new), (screenHeight-211-width_new), width_new, width_new, "hud/timer.png" )
-		dxDrawCircle ( (screenWidth-width_new)+(width_new/2), (screenHeight-211-width_new)+(width_new/2), 30*width_hd, -90.0, (360.0/timer[2])*timer[3]-90, tocolor( 255,50,50,150 ), tocolor( 255,50,50,150 ) )
+		dxDrawCircle ( (screenWidth-width_new)+(width_new/2), (screenHeight-211-width_new)+(width_new/2), 30*height_hd, -90.0, (360.0/timer[2])*timer[3]-90, tocolor( 255,50,50,150 ), tocolor( 255,50,50,150 ) )
 		dxDrawImage ( (screenWidth-width_new), (screenHeight-211-width_new), width_new, width_new, "hud/timer_arrow.png", (360.0/timer[2])*timer[3] )
 	end
 end
