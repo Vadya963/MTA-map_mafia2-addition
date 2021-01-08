@@ -24,12 +24,14 @@ local vehicles = {
 	[429] = "ISW 508",
 	[415] = "Smith Thunderbolt",
 	[555] = "Shubert Frigate",
+	[527] = "Roller GL300",
 
 	[496] = "Walter Coupe",
 	[401] = "Berkley Kingfisher",
 	[534] = "Jefferson Provincial",
 	[518] = "Shubert Beverly",
 	[589] = "Volkswagen Beetle 1963",
+	[602] = "Chaffeque XT",
 
 	--4 дверные
 	[426] = "Smith Custom 200",
