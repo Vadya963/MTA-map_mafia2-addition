@@ -110,14 +110,14 @@ function (startedResource)
 	end )
 end)
 
-addEventHandler( "onClientVehicleEnter", getRootElement(), 
+addEventHandler( "onClientVehicleEnter", root, 
 function (thePlayer, seat) 
 --The source of the event is the vehicle that the player entered.
 	setRadioChannel( 0 )
 	radio_station = getElementData( source, "radio" ) or 0
 	setRadio(radio_station)
 end)
-addEventHandler( "onClientVehicleExit", getRootElement(), 
+addEventHandler( "onClientVehicleExit", root, 
 function (thePlayer, seat) 
 --The source of the event is the vehicle that the player exited.
 	radio_station = 0
@@ -126,7 +126,7 @@ function (thePlayer, seat)
 	text_radio = false
 end)
 
-addEventHandler( "onClientRender", getRootElement(), 
+addEventHandler( "onClientRender", root, 
 function () 
 --The source of this event is the client's root element.
 	if text_radio and not getElementData(localPlayer, "radar_mafia2") then 

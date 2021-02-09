@@ -197,7 +197,7 @@ function outputEditBox ( button, state, absoluteX, absoluteY )
 							end
 						end
 					else
-						triggerServerEvent ( v1[2], getRootElement(), localPlayer, v1[3] )
+						triggerServerEvent ( v1[2], root, localPlayer, v1[3] )
 					end
 				end
 			end

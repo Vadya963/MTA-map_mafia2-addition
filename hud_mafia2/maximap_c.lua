@@ -47,7 +47,7 @@ function unloadImageOnOwnerResourceStop(resource)
 		setPlayerMapImage()
 	end
 end
-addEventHandler("onClientResourceStop",getRootElement(),unloadImageOnOwnerResourceStop)
+addEventHandler("onClientResourceStop",root,unloadImageOnOwnerResourceStop)
 
 function drawMap()
 	if not toggle then
@@ -68,7 +68,7 @@ function drawMap()
 		drawLocalPlayerArrow()
 	end
 end
-addEventHandler("onClientPreRender",getRootElement(),drawMap)
+addEventHandler("onClientPreRender",root,drawMap)
 
 function drawRadarAreas()
 	local radarareas=getElementsByType("radararea")
@@ -201,11 +201,11 @@ addEvent("onClientPlayerMapShow")
 
 function toggleMap()
 	if toggle then
-		if triggerEvent("onClientPlayerMapHide",getRootElement(),false) then
+		if triggerEvent("onClientPlayerMapHide",root,false) then
 			toggle=false
 		end
 	else
-		if triggerEvent("onClientPlayerMapShow",getRootElement(),false) then
+		if triggerEvent("onClientPlayerMapShow",root,false) then
 			toggle=true
 		end
 	end
@@ -237,9 +237,9 @@ function setPlayerMapVisible(newToggle)
 		toggle=newToggle
 		
 		if toggle then
-			triggerEvent("onClientPlayerMapShow",getRootElement(),true)
+			triggerEvent("onClientPlayerMapShow",root,true)
 		else
-			triggerEvent("onClientPlayerMapHide",getRootElement(),true)
+			triggerEvent("onClientPlayerMapHide",root,true)
 		end
 		
 		return true

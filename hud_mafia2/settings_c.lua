@@ -8,3 +8,9 @@ math.randomseed(getTickCount())
 function random(min, max)
 	return math.random(min, max)
 end
+
+function dxdrawtext(text, x, y, width, height, color, scale, font)
+	dxDrawText ( text, x+1, y+1, width, height, tocolor ( 0, 0, 0, 255 ), scale, font )
+
+	dxDrawText ( text, x, y, width, height, color, scale, font )
+end

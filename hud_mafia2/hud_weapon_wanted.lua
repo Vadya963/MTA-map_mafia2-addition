@@ -15,12 +15,6 @@ function ( startedRes )
 	setPlayerHudComponentVisible("wanted", false)
 end)
 
-function dxdrawtext(text, x, y, width, height, color, scale, font)
-	dxDrawText ( text, x+1, y+1, width, height, tocolor ( 0, 0, 0, 255 ), scale, font )
-
-	dxDrawText ( text, x, y, width, height, color, scale, font )
-end
-
 function createText ()
 	if getElementData(localPlayer, "radar_mafia2") then return end
 

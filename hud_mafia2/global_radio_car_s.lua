@@ -187,7 +187,7 @@ for k,v in pairs({"delta","empire","classic"}) do
 end
 
 addEvent( "event_onPlayerJoin", true )
-addEventHandler( "event_onPlayerJoin", getRootElement(), 
+addEventHandler( "event_onPlayerJoin", root, 
 function () 
 --The source of this event is the player who joined.
 --This event is not cancellable.
@@ -196,7 +196,7 @@ function ()
 	end
 end)
 
-addEventHandler( "onElementDataChange", getRootElement(), 
+addEventHandler( "onElementDataChange", root, 
 function (theKey, oldValue, newValue) 
 --source: The source of this event is the element whose element data changed.
 --client: The global variable is set to the client that called setElementData, or nil if it was called on the server.

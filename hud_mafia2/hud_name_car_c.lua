@@ -47,7 +47,7 @@ local vehicles = {
 	[551] = "Packard Standard Eight 1948 Touring Sedan",
 }
 
-addEventHandler( "onClientVehicleEnter", getRootElement(), 
+addEventHandler( "onClientVehicleEnter", root, 
 function (thePlayer, seat) 
 --The source of the event is the vehicle that the player entered.
 	local model = getElementModel( source )
@@ -66,7 +66,7 @@ function (thePlayer, seat)
 	end, 5000, 1 )
 end)
 
-addEventHandler( "onClientRender", getRootElement(), 
+addEventHandler( "onClientRender", root, 
 function () 
 --The source of this event is the client's root element.
 	if text_area and not getElementData(localPlayer, "radar_mafia2") then 
