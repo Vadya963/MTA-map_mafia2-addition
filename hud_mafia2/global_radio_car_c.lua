@@ -48,13 +48,12 @@ function setRadioSound(wave_radio,table)
 		setSoundVolume( sound[wave_radio], 0.0 )
 	end
 end
+addEvent( "event_setRadioSound", true )
+addEventHandler( "event_setRadioSound", resourceRoot, setRadioSound )
 
 addEventHandler( "onClientResourceStart", resourceRoot, 
 function (startedResource) 
 --The source of this event is the started resource's root element.
-	addEvent( "event_setRadioSound", true )
-	addEventHandler( "event_setRadioSound", resourceRoot, setRadioSound )
-
 	triggerServerEvent( "event_onPlayerJoin", localPlayer )
 
 	bindKey ( ",", "down", function ( ... )

@@ -4,6 +4,8 @@ local text_table = {}
 function addText(image, key, text)
 	table.insert(text_table, {image, key, text})
 end
+addEvent( "event_addText", true )
+addEventHandler( "event_addText", root, addText )
 
 function deleteText(image, key, text)
 	for k,v in pairs(text_table) do
@@ -13,6 +15,8 @@ function deleteText(image, key, text)
 		end
 	end
 end
+addEvent( "event_deleteText", true )
+addEventHandler( "event_deleteText", root, deleteText )
 
 addEventHandler( "onClientRender", root, 
 function () 

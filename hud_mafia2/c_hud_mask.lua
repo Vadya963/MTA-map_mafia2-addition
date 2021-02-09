@@ -94,7 +94,7 @@ addEventHandler( "onClientRender", root,
 				speed_car = getSpeed(vehicle)*2+40
 			end
 
-			dxDrawImage ( screenWidth-20-width_new-width_map*height_hd, screenHeight-width_new-15, width_new, width_new, "hud/speed_v.png" )
+			dxDrawImageSection(screenWidth-20-width_new-width_map*height_hd, screenHeight-width_new-15, width_new, width_new, 0, 105, 105, 105, 'hud/hud2.png')
 			dxDrawImage ( screenWidth-20-width_new-width_map*height_hd, screenHeight-width_new-15, width_new, width_new, "hud/arrow_speed_v.png", speed_car )
 			dxDrawImage ( (screenWidth-20-width_new-width_map*height_hd), screenHeight-width_new-15, width_new, width_new, "hud/fuel_v.png", 30.0-(fuel*1.2) )
 
