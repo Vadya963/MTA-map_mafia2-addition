@@ -1,6 +1,10 @@
 <meta>
 <script src="replace_car.lua" type="client"/>
 
+<file src='Smith Truck.dff'/>
+<file src='Smith Truck.txd'/>
+<file src='Samson Drifter.dff'/>
+<file src='Samson Drifter.txd'/>
 <file src='GAI 353 Military Truck.dff'/>
 <file src='GAI 353 Military Truck.txd'/>
 <file src='American LaFrance 600-Series 1941.dff'/>
