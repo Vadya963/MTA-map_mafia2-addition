@@ -13,6 +13,7 @@ local vehicles = {
 	[431] = "GMC Fishbowl City Bus 1976",
 	[433] = "GAI 353 Military Truck",
 	[456] = "Smith Truck",
+	[500] = "Walter Military",
 
 	--2 дверные
 	--спорт
@@ -25,6 +26,7 @@ local vehicles = {
 	[555] = "Shubert Frigate",
 	[527] = "Roller GL300",
 	[480] = "Samson Drifter",
+	[559] = "Ascot Bailey",
 
 	[496] = "Walter Coupe",
 	[401] = "Berkley Kingfisher",
@@ -42,8 +44,9 @@ local vehicles = {
 	[604] = "Shubert 38",
 	[507] = "Houston Wasp",
 	[492] = "Quicksilver Windsor",
-	[585] = "Potomac Indian",--имеет прозрачное название марки
+	[585] = "Potomac Indian",
 	[551] = "Packard Standard Eight 1948 Touring Sedan",
+	[546] = "Lassiter Series 69",
 }
 
 local wheel = {

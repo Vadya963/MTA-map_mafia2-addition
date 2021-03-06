@@ -1,6 +1,12 @@
 <meta>
 <script src="replace_car.lua" type="client"/>
 
+<file src='Lassiter Series 69.dff'/>
+<file src='Lassiter Series 69.txd'/>
+<file src='Ascot Bailey.dff'/>
+<file src='Ascot Bailey.txd'/>
+<file src='Walter Military.dff'/>
+<file src='Walter Military.txd'/>
 <file src='Smith Truck.dff'/>
 <file src='Smith Truck.txd'/>
 <file src='Samson Drifter.dff'/>
