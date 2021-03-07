@@ -3,8 +3,6 @@ local text_area = false
 local ud_timer = false
 
 local vehicles = {
-	[409] = "Lassiter Series 75 Hollywood",
-
 	--рабочие
 	[428] = "Shubert Armored Van",
 	[423] = "Milk Truck",
@@ -18,6 +16,8 @@ local vehicles = {
 	[525] = "Dodge Towtruck",
 	[431] = "GMC Fishbowl City Bus 1976",
 	[433] = "GAI 353 Military Truck",
+	[456] = "Smith Truck",
+	[500] = "Walter Military",
 
 	--2 дверные
 	--спорт
@@ -28,23 +28,29 @@ local vehicles = {
 	[429] = "ISW 508",
 	[415] = "Smith Thunderbolt",
 	[555] = "Shubert Frigate",
+	[527] = "Roller GL300",
+	[480] = "Samson Drifter",
+	[559] = "Ascot Bailey",
 
 	[496] = "Walter Coupe",
 	[401] = "Berkley Kingfisher",
 	[534] = "Jefferson Provincial",
 	[518] = "Shubert Beverly",
 	[589] = "Volkswagen Beetle 1963",
+	[602] = "Chaffeque XT",
 
 	--4 дверные
+	[409] = "Lassiter Series 75 Hollywood",
 	[426] = "Smith Custom 200",
 	[596] = "Smith Custom 200 Police Special",
 	[597] = "Culver Empire Police Special",
 	[445] = "Smith Deluxe Station Wagon",
 	[604] = "Shubert 38",
 	[507] = "Houston Wasp",
-	[466] = "Quicksilver Windsor",--при ударе номера появляется шапка такси
-	[585] = "Potomac Indian",--имеет прозрачное название марки
+	[492] = "Quicksilver Windsor",
+	[585] = "Potomac Indian",
 	[551] = "Packard Standard Eight 1948 Touring Sedan",
+	[546] = "Lassiter Series 69",
 }
 
 addEventHandler( "onClientVehicleEnter", root, 
