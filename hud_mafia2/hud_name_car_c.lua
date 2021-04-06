@@ -14,7 +14,7 @@ local vehicles = {
 	[544] = "American LaFrance 600-Series 1941",
 	[416] = "Buick Special Ambulance 1947",
 	[525] = "Dodge Towtruck",
-	[431] = "GMC Fishbowl City Bus 1976",
+	[431] = "Parry Bus",
 	[433] = "GAI 353 Military Truck",
 	[456] = "Smith Truck",
 	[500] = "Walter Military",
@@ -29,14 +29,14 @@ local vehicles = {
 	[415] = "Smith Thunderbolt",
 	[555] = "Shubert Frigate",
 	[527] = "Roller GL300",
-	[480] = "Samson Drifter",
-	[559] = "Ascot Bailey",
+	[526] = "Samson Drifter",
+	[480] = "Ascot Bailey",
 
 	[496] = "Walter Coupe",
 	[401] = "Berkley Kingfisher",
 	[534] = "Jefferson Provincial",
 	[518] = "Shubert Beverly",
-	[589] = "Volkswagen Beetle 1963",
+	[589] = "Volkswagen Beetle",
 	[602] = "Chaffeque XT",
 
 	--4 дверные

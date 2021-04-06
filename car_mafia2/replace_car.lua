@@ -32,7 +32,7 @@ local vehicles = {
 	[401] = "Berkley Kingfisher",
 	[534] = "Jefferson Provincial",
 	[518] = "Shubert Beverly",
-	[589] = "Volkswagen Beetle 1963",
+	[589] = "Volkswagen Beetle",
 	[602] = "Chaffeque XT",
 
 	--4 дверные
