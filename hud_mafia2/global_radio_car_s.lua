@@ -26,6 +26,7 @@ local table_radio = {
 			{'victory_polka',163.20106575964},
 			{'java',115.18800453515},
 			{'it_dont_mean_a_thing_if_it_a',187.54718820862},
+			{'happiness_is_a_thing_called_joe',241.8358276644},
 		},
 		["delta"] = {
 			{'that_chicks_too_young_to_fry',141.54555555556},
@@ -61,6 +62,7 @@ local table_radio = {
 			{'youre_driving_me_crazy_dr',171.27290249433},
 			{'goin_places',176.41902494331},
 			{'blue_skies',169.54882086168},
+			{'the_best_things_in_life_are_free',155.01641723356},
 		},
 	},
 	["50"] = {
