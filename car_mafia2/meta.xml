@@ -1,6 +1,8 @@
 <meta>
 <script src="replace_car.lua" type="client"/>
 
+<file src='Walter Hot Rod.dff'/>
+<file src='Walter Hot Rod.txd'/>
 <file src='Lassiter Series 69.dff'/>
 <file src='Lassiter Series 69.txd'/>
 <file src='Ascot Bailey.dff'/>

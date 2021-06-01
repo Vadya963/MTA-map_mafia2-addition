@@ -27,6 +27,7 @@ local vehicles = {
 	[527] = "Roller GL300",
 	[526] = "Samson Drifter",
 	[480] = "Ascot Bailey",
+	[565] = "Walter Hot Rod",
 
 	[496] = "Walter Coupe",
 	[401] = "Berkley Kingfisher",
