@@ -31,7 +31,6 @@ local vehicles = {
 	[527] = "Roller GL300",
 	[526] = "Samson Drifter",
 	[480] = "Ascot Bailey",
-	[565] = "Walter Hot Rod",
 
 	[496] = "Walter Coupe",
 	[401] = "Berkley Kingfisher",
@@ -57,20 +56,22 @@ local vehicles = {
 addEventHandler( "onClientVehicleEnter", root, 
 function (thePlayer, seat) 
 --The source of the event is the vehicle that the player entered.
-	local model = getElementModel( source )
+	if getElementType( thePlayer ) == "player" and thePlayer == localPlayer then
+		local model = getElementModel( source )
 
-	if isTimer(ud_timer) then killTimer( ud_timer ) end
+		if isTimer(ud_timer) then killTimer( ud_timer ) end
 
-	if vehicles[model] then
-		text_area = vehicles[model]
-	else
-		text_area = "none"
+		if vehicles[model] then
+			text_area = vehicles[model]
+		else
+			text_area = "none"
+		end
+
+		ud_timer = setTimer( function() 
+			text_area = false
+			name_car = 0
+		end, 5000, 1 )
 	end
-
-	ud_timer = setTimer( function() 
-		text_area = false
-		name_car = 0
-	end, 5000, 1 )
 end)
 
 addEventHandler( "onClientRender", root, 

@@ -25,54 +25,55 @@ local millville_n = createColPolygon( 0,0, 1415.9013671875,127.5068359375, 472.0
 addEventHandler( "onClientColShapeHit", resourceRoot,
 function (theElement, matchingDimension) 
 --The source of this event is the colshape that was hit.
-	if getElementType( theElement ) ~= "player" then return end
+	if getElementType( theElement ) == "player" and theElement == localPlayer then
 	
-	if isTimer(ud_timer) then killTimer( ud_timer ) end
+		if isTimer(ud_timer) then killTimer( ud_timer ) end
 
-	if hillwood == source then
-		text_area="Хилвуд"
-	elseif riverside == source then
-		text_area="Риверсайд"
-	elseif dipton == source then
-		text_area="Диптон"
-	elseif kingstone == source then
-		text_area="Кингстон"
-	elseif greenfield == source then
-		text_area="Гринфилд"
-	elseif hunters == source then
-		text_area="Хантерс-Пойнт"
-	elseif sandisland == source then
-		text_area="Сэнд-Айленд"
-	elseif highbrook == source then
-		text_area="Хайбрук"
-	elseif uppertown == source then
-		text_area="Аптаун"
-	elseif westside == source then
-		text_area="Вест-Сайд"
-	elseif southport == source then
-		text_area="Сауспорт"
-	elseif port == source then
-		text_area="Порт"
-	elseif midtown == source then
-		text_area="Мидтаун"
-	elseif eastside == source then
-		text_area="Ист-Сайд"
-	elseif italy == source then
-		text_area="Маленькая Италия"
-	elseif chinatown == source then
-		text_area="Китайский Квартал"
-	elseif oysterbay == source then
-		text_area="Ойстер-Бэй"
-	elseif millville_s == source then
-		text_area="Южный Милвилл"
-	elseif millville_n == source then
-		text_area="Северный Милвилл"
+		if hillwood == source then
+			text_area="Хилвуд"
+		elseif riverside == source then
+			text_area="Риверсайд"
+		elseif dipton == source then
+			text_area="Диптон"
+		elseif kingstone == source then
+			text_area="Кингстон"
+		elseif greenfield == source then
+			text_area="Гринфилд"
+		elseif hunters == source then
+			text_area="Хантерс-Пойнт"
+		elseif sandisland == source then
+			text_area="Сэнд-Айленд"
+		elseif highbrook == source then
+			text_area="Хайбрук"
+		elseif uppertown == source then
+			text_area="Аптаун"
+		elseif westside == source then
+			text_area="Вест-Сайд"
+		elseif southport == source then
+			text_area="Сауспорт"
+		elseif port == source then
+			text_area="Порт"
+		elseif midtown == source then
+			text_area="Мидтаун"
+		elseif eastside == source then
+			text_area="Ист-Сайд"
+		elseif italy == source then
+			text_area="Маленькая Италия"
+		elseif chinatown == source then
+			text_area="Китайский Квартал"
+		elseif oysterbay == source then
+			text_area="Ойстер-Бэй"
+		elseif millville_s == source then
+			text_area="Южный Милвилл"
+		elseif millville_n == source then
+			text_area="Северный Милвилл"
+		end
+
+		ud_timer = setTimer( function() 
+			text_area = false
+			area_hud = 0
+		end, 5000, 1 )
 	end
-
-	ud_timer = setTimer( function() 
-		text_area = false
-		area_hud = 0
-	end, 5000, 1 )
 end)
 
 addEventHandler( "onClientRender", root, 
