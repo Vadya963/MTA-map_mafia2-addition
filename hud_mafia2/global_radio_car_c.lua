@@ -112,17 +112,21 @@ end)
 addEventHandler( "onClientVehicleEnter", root, 
 function (thePlayer, seat) 
 --The source of the event is the vehicle that the player entered.
-	setRadioChannel( 0 )
-	radio_station = getElementData( source, "radio" ) or 0
-	setRadio(radio_station)
+	if getElementType( thePlayer ) == "player" and thePlayer == localPlayer then
+		setRadioChannel( 0 )
+		radio_station = getElementData( source, "radio" ) or 0
+		setRadio(radio_station)
+	end
 end)
 addEventHandler( "onClientVehicleExit", root, 
 function (thePlayer, seat) 
 --The source of the event is the vehicle that the player exited.
-	radio_station = 0
-	setRadio(radio_station)
+	if getElementType( thePlayer ) == "player" and thePlayer == localPlayer then
+		radio_station = 0
+		setRadio(radio_station)
 
-	text_radio = false
+		text_radio = false
+	end
 end)
 
 addEventHandler( "onClientRender", root, 
