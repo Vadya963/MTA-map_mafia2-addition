@@ -59,7 +59,7 @@ function (startedResource)
 	bindKey ( ",", "down", function ( ... )
 		local vehicle = getPedOccupiedVehicle ( localPlayer )
 		if vehicle then
-			if localPlayer ~= getVehicleOccupant(vehicle, 0) then return end
+			if localPlayer ~= getVehicleOccupant(vehicle, 0) and localPlayer ~= getVehicleOccupant(vehicle, 1) then return end
 		else
 			return
 		end
@@ -85,7 +85,7 @@ function (startedResource)
 	bindKey ( ".", "down", function ( ... )
 		local vehicle = getPedOccupiedVehicle ( localPlayer )
 		if vehicle then
-			if localPlayer ~= getVehicleOccupant(vehicle, 0) then return end
+			if localPlayer ~= getVehicleOccupant(vehicle, 0) and localPlayer ~= getVehicleOccupant(vehicle, 1) then return end
 		else
 			return
 		end

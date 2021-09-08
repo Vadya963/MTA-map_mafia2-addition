@@ -206,9 +206,7 @@ function (theKey, oldValue, newValue)
 --This event cannot be cancelled using cancelEvent. To reverse the effect, use setElementData with the old value.
 	if getElementType( source ) == "vehicle" and theKey == "radio" then
 		for k,v in pairs(getVehicleOccupants( source )) do
-			if k ~= 0 then
-				triggerClientEvent( v, "event_setRadio", client, getElementData( source, "radio" ) )
-			end
+			triggerClientEvent( v, "event_setRadio", client, getElementData( source, "radio" ) )
 		end
 	end
 end)
