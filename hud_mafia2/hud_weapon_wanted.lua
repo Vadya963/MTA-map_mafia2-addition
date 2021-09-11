@@ -22,9 +22,9 @@ function createText ()
 		local v = getElementData(root, "custom_weapon")[weaponpl]
 		dxDrawImageSection(50, screenHeight-50-(v[6]*height_hd), v[5]*height_hd, v[6]*height_hd, v[3], v[4], v[5], v[6], 'hud/hud2.png')
 		if weaponpl == 25 then
-			dxdrawtext ( getPedTotalAmmo(localPlayer), 50+(v[5]*height_hd), screenHeight-50-15, 0.0, 0.0, tocolor ( 255, 255, 255, 255 ), 1*height_hd, "default-bold" )
+			dxdrawtext ( getPedTotalAmmo(localPlayer), 55+(v[5]*height_hd), screenHeight-50-15, 0.0, 0.0, tocolor ( 255, 255, 255, 255 ), 1*height_hd, "default-bold" )
 		elseif weaponpl ~= 5 and weaponpl ~= 4 and weaponpl ~= 1 and weaponpl ~= 3 and weaponpl ~= 6 and weaponpl ~= 15 then
-			dxdrawtext ( getPedAmmoInClip(localPlayer).." | "..(getPedTotalAmmo(localPlayer)-getPedAmmoInClip(localPlayer)), 50+(v[5]*height_hd), screenHeight-50-15, 0.0, 0.0, tocolor ( 255, 255, 255, 255 ), 1*height_hd, "default-bold" )
+			dxdrawtext ( getPedAmmoInClip(localPlayer).." | "..(getPedTotalAmmo(localPlayer)-getPedAmmoInClip(localPlayer)), 55+(v[5]*height_hd), screenHeight-50-15, 0.0, 0.0, tocolor ( 255, 255, 255, 255 ), 1*height_hd, "default-bold" )
 		end
 	end
 

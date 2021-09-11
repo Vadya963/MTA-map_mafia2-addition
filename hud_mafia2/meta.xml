@@ -138,4 +138,11 @@
 
 	<file src="sounds_weapon/Magnum.wav"/>
 	<file src="sounds_weapon/Thompson.wav"/>
+	<file src="sounds_weapon/C1911.wav"/>
+	<file src="sounds_weapon/Remington.wav"/>
+	<file src="sounds_weapon/M3.wav"/>
+	<file src="sounds_weapon/Thompson_n.wav"/>
+	<file src="sounds_weapon/M1G.wav"/>
+	<file src="sounds_weapon/R38.wav"/>
+	<file src="sounds_weapon/Mauser98k.wav"/>
 </meta>
