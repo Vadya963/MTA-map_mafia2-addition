@@ -110,7 +110,6 @@ end)
 
 addEventHandler( "onClientPlayerVehicleEnter", root, 
 function (theVehicle, seat) 
---The source of the event is the vehicle that the player entered.
 	if isTimer(ud_timer) then killTimer( ud_timer ) end
 
 	setRadioChannel( 0 )
@@ -127,7 +126,6 @@ function (theVehicle, seat)
 end)
 addEventHandler( "onClientPlayerVehicleExit", root, 
 function (theVehicle, seat) 
---The source of the event is the vehicle that the player exited.
 	radio_station = 0
 	setRadio(radio_station)
 

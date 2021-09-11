@@ -59,9 +59,8 @@ function (startedResource)
 	setPlayerHudComponentVisible ("vehicle_name", false )
 end)
 
-addEventHandler( "onClientVehicleEnter", root, 
+addEventHandler( "onClientPlayerVehicleEnter", root, 
 function (theVehicle, seat) 
---The source of the event is the vehicle that the player entered.
 	local model = getElementModel( theVehicle )
 
 	if isTimer(ud_timer) then killTimer( ud_timer ) end
