@@ -1,4 +1,3 @@
-local screenWidth, screenHeight = guiGetScreenSize ( )
 local text_area = false
 local ud_timer = false
 
@@ -54,25 +53,29 @@ local vehicles = {
 	[546] = "Lassiter Series 69",
 }
 
+addEventHandler( "onClientResourceStart", resourceRoot, 
+function (startedResource) 
+--The source of this event is the started resource's root element.
+	setPlayerHudComponentVisible ("vehicle_name", false )
+end)
+
 addEventHandler( "onClientVehicleEnter", root, 
-function (thePlayer, seat) 
+function (theVehicle, seat) 
 --The source of the event is the vehicle that the player entered.
-	if getElementType( thePlayer ) == "player" and thePlayer == localPlayer then
-		local model = getElementModel( source )
+	local model = getElementModel( theVehicle )
 
-		if isTimer(ud_timer) then killTimer( ud_timer ) end
+	if isTimer(ud_timer) then killTimer( ud_timer ) end
 
-		if vehicles[model] then
-			text_area = vehicles[model]
-		else
-			text_area = "none"
-		end
-
-		ud_timer = setTimer( function() 
-			text_area = false
-			name_car = 0
-		end, 5000, 1 )
+	if vehicles[model] then
+		text_area = vehicles[model]
+	else
+		text_area = "none"
 	end
+
+	ud_timer = setTimer( function() 
+		text_area = false
+		name_car = 0
+	end, 5000, 1 )
 end)
 
 addEventHandler( "onClientRender", root, 

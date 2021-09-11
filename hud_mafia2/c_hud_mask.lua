@@ -67,7 +67,6 @@ end
 -----------------------------------------------------------------------------------
 -- onClientRender
 -----------------------------------------------------------------------------------
-local screenWidth, screenHeight = guiGetScreenSize ( )
 local sx,sy = screenWidth, screenHeight
 local width_map = 146
 local width_speed = 105
@@ -83,7 +82,7 @@ addEventHandler( "onClientRender", root,
 		if not bAllValid or getElementData(localPlayer, "radar_mafia2") or getElementInterior(localPlayer) ~= 0 or getElementDimension(localPlayer) ~= 0 then return end
 
 		local vehicle = getPedOccupiedVehicle ( localPlayer )
-		if vehicle then--отображение скорости авто
+		if vehicle and localPlayer == getVehicleOccupant(vehicle, 0) then--отображение скорости авто
 			local width_new = width_speed*height_hd
 			local speed_car = 0
 			local fuel = 5

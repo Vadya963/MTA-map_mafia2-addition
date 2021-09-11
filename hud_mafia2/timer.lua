@@ -1,4 +1,3 @@
-local screenWidth, screenHeight = guiGetScreenSize ( )
 local timer = {true, 10, 10}
 local width_new = 85*height_hd
 

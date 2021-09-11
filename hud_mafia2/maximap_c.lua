@@ -1,5 +1,4 @@
-local screenW,screenH = guiGetScreenSize()
-local middleX,middleY = screenW/2,screenH/2
+local middleX,middleY = screenWidth/2,screenHeight/2
 
 local localPlayer  = getLocalPlayer()
 local thisResource = getThisResource()
@@ -25,7 +24,7 @@ local mapFile                           = "images/radar.png"
 local topLeftWorldX,topLeftWorldY       = -3000,3000
 local lowerRightWorldX,lowerRightWorldY = 3000,-3000
 local mapWidth,mapHeight                = 6000,6000
-local pixelsPerMeter                    = screenH/6000
+local pixelsPerMeter                    = screenHeight/6000
 local imageOwnerResource                = getThisResource()
 
 toggleControl("radar",false)
@@ -129,12 +128,12 @@ end
 
 function zoomOutRecalculate()
 	local newVSize=pixelsPerMeter*mapHeight*zoom
-	if newVSize>screenH then
+	if newVSize>screenHeight then
 		local newY=middleY-newVSize/2+yOffset*zoom
 		
 		if newY>0 then
 			yOffset=-(middleY-newVSize/2)/zoom
-		elseif newY<=(-newVSize+screenH) then
+		elseif newY<=(-newVSize+screenHeight) then
 			yOffset=(middleY-newVSize/2)/zoom
 		end
 	else
@@ -142,12 +141,12 @@ function zoomOutRecalculate()
 	end
 	
 	local newHSize=pixelsPerMeter*mapWidth*zoom
-	if newHSize>screenW then
+	if newHSize>screenWidth then
 		local newX=middleX-newHSize/2+xOffset*zoom
 		
 		if newX>=0 then
 			xOffset=-(middleX-newHSize/2)/zoom
-		elseif newX<=(-newHSize+screenW) then
+		elseif newX<=(-newHSize+screenWidth) then
 			xOffset=(middleX-newHSize/2)/zoom
 		end
 	else
@@ -176,7 +175,7 @@ function checkMovement()
 	end
 	if getPedControlState("radar_move_south") then
 		local newY=y-yOffset*zoom+(yOffset-movementSpeed)*zoom
-		if newY>(-vSize+screenH) then
+		if newY>(-vSize+screenHeight) then
 			yOffset=yOffset-movementSpeed
 		end
 	end
@@ -190,7 +189,7 @@ function checkMovement()
 	end
 	if getPedControlState("radar_move_east") then
 		local newX=x-xOffset*zoom+(xOffset-movementSpeed)*zoom
-		if newX>(-hSize+screenW) then
+		if newX>(-hSize+screenWidth) then
 			xOffset=xOffset-movementSpeed
 		end
 	end
@@ -274,7 +273,7 @@ function setPlayerMapImage(image,tLX,tLY,lRX,lRY)
 			topLeftWorldX,topLeftWorldY       = tLX,tLY
 			lowerRightWorldX,lowerRightWorldY = lRX,lRY
 			mapWidth,mapHeight                = lRX-tLX,tLY-lRY
-			pixelsPerMeter                    = math.min(screenW/(mapWidth),screenH/mapHeight)
+			pixelsPerMeter                    = math.min(screenWidth/(mapWidth),screenHeight/mapHeight)
 			
 			zoom                              = 1
 			xOffset                           = 0
@@ -289,7 +288,7 @@ function setPlayerMapImage(image,tLX,tLY,lRX,lRY)
 		topLeftWorldX,topLeftWorldY       = -3000,3000
 		lowerRightWorldX,lowerRightWorldY = 3000,-3000
 		mapWidth,mapHeight                = 6000,6000
-		pixelsPerMeter                    = screenH/6000
+		pixelsPerMeter                    = screenHeight/6000
 		
 		zoom                              = 1
 		xOffset                           = 0

@@ -16,6 +16,7 @@
 	<script src="global_radio_car_s.lua" type="server"/>
 	<script src="global_radio_car_c.lua" type="client"/>
 	<script src="2d_text_bindkey.lua" type="client"/>
+	<script src="sounds_weapon_c.lua" type="client"/>
 
 	<script src="c_hud_mask.lua" type="client" validate="false"/>
 	<file src="hud_mask.fx" type="client" />
@@ -135,4 +136,6 @@
 	<file src="hud/low_fuel.png"/>
 	<file src="hud/hud2.png"/>
 
+	<file src="sounds_weapon/Magnum.wav"/>
+	<file src="sounds_weapon/Thompson.wav"/>
 </meta>

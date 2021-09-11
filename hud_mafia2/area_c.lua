@@ -1,4 +1,3 @@
-local screenWidth, screenHeight = guiGetScreenSize ( )
 local text_area = false
 local ud_timer = false
 

@@ -14,7 +14,6 @@ local sound = {
 	["empire"] = false,
 }
 
-local screenWidth, screenHeight = guiGetScreenSize ( )
 local text_radio = false
 local ud_timer = false
 
@@ -109,24 +108,30 @@ function (startedResource)
 	end )
 end)
 
-addEventHandler( "onClientVehicleEnter", root, 
-function (thePlayer, seat) 
+addEventHandler( "onClientPlayerVehicleEnter", root, 
+function (theVehicle, seat) 
 --The source of the event is the vehicle that the player entered.
-	if getElementType( thePlayer ) == "player" and thePlayer == localPlayer then
-		setRadioChannel( 0 )
-		radio_station = getElementData( source, "radio" ) or 0
-		setRadio(radio_station)
+	if isTimer(ud_timer) then killTimer( ud_timer ) end
+
+	setRadioChannel( 0 )
+	radio_station = getElementData( theVehicle, "radio" ) or 0
+	setRadio(radio_station)
+
+	if radio_station ~= 0 then
+		text_radio = radio_name[radio_station][1]
+
+		ud_timer = setTimer( function() 
+			text_radio = false
+		end, 5000, 1 )
 	end
 end)
-addEventHandler( "onClientVehicleExit", root, 
-function (thePlayer, seat) 
+addEventHandler( "onClientPlayerVehicleExit", root, 
+function (theVehicle, seat) 
 --The source of the event is the vehicle that the player exited.
-	if getElementType( thePlayer ) == "player" and thePlayer == localPlayer then
-		radio_station = 0
-		setRadio(radio_station)
+	radio_station = 0
+	setRadio(radio_station)
 
-		text_radio = false
-	end
+	text_radio = false
 end)
 
 addEventHandler( "onClientRender", root, 

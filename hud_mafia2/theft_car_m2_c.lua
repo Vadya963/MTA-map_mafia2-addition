@@ -2,7 +2,6 @@ local white = tocolor( 255,255,255 )
 local red = tocolor( 255,0,0 )
 local green = tocolor( 0,255,0 )
 
-local screenWidth, screenHeight = guiGetScreenSize ( )
 local theft = false
 local key_state = 1
 local key_angle = -9

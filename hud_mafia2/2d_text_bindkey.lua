@@ -1,4 +1,3 @@
-local screenWidth, screenHeight = guiGetScreenSize ( )
 local text_table = {}
 
 function addText(image, key, text)

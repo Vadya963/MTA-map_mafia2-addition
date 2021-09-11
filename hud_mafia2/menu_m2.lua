@@ -1,5 +1,3 @@
-local screenWidth, screenHeight = guiGetScreenSize ( )
-
 local menu_m2_table_text = {
 	--button text
 	["т/с"] = {"фары", "двигатель", "багажник", "двери"},
