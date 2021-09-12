@@ -156,10 +156,10 @@ end
 
 function checkMovement()
 	-- Zoom
-	if getPedControlState("radar_zoom_in") and zoom<maxZoomLimit then
+	if getPedControlState_f("radar_zoom_in") and zoom<maxZoomLimit then
 		zoom=zoom+zoomRate
 		if zoom>maxZoomLimit then zoom=maxZoomLimit end
-	elseif getPedControlState("radar_zoom_out") and zoom>minZoomLimit then
+	elseif getPedControlState_f("radar_zoom_out") and zoom>minZoomLimit then
 		zoom=zoom-zoomRate
 		if zoom<minZoomLimit then zoom=minZoomLimit end
 		
@@ -167,19 +167,19 @@ function checkMovement()
 	end
 	
 	-- Move
-	if getPedControlState("radar_move_north") then
+	if getPedControlState_f("radar_move_north") then
 		local newY=y-yOffset*zoom+(yOffset+movementSpeed)*zoom
 		if newY<0 then
 			yOffset=yOffset+movementSpeed
 		end
 	end
-	if getPedControlState("radar_move_south") then
+	if getPedControlState_f("radar_move_south") then
 		local newY=y-yOffset*zoom+(yOffset-movementSpeed)*zoom
 		if newY>(-vSize+screenHeight) then
 			yOffset=yOffset-movementSpeed
 		end
 	end
-	if getPedControlState("radar_move_west") then
+	if getPedControlState_f("radar_move_west") then
 		local newXOff=(xOffset+movementSpeed)
 		local newX=x-xOffset*zoom+newXOff*zoom
 		
@@ -187,7 +187,7 @@ function checkMovement()
 			xOffset=xOffset+movementSpeed
 		end
 	end
-	if getPedControlState("radar_move_east") then
+	if getPedControlState_f("radar_move_east") then
 		local newX=x-xOffset*zoom+(xOffset-movementSpeed)*zoom
 		if newX>(-hSize+screenWidth) then
 			xOffset=xOffset-movementSpeed

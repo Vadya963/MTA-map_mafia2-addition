@@ -1,13 +1,13 @@
 local weapon = {
-	[23] = {"silenced", 347, 64,449, 59,34, 7, "C1911"},
-	[24] = {"desert_eagle", 348, 242,230, 84,42, 6, "Magnum"},
-	[31] = {"m4", 356, 61,415, 119,33, 50, "Thompson"},
-	[30] = {"ak47", 355, 176,448, 112,34, 30, "Thompson_n"},
-	[25] = {"chromegun", 349, 105,340, 138,22, 8, "Remington"},
-	[29] = {"mp5", 353, 0,0, 106,59, 30, "M3"},
-	[33] = {"rifle", 357, 105,313, 143,26, 8, "M1G"},
-	[22] = {"colt45", 346, 123,449, 53,38, 6, "R38"},
-	[34] = {"sniper", 358, 64,487, 135,25, 5, "Mauser98k"},
+	[23] = {"Colt M1911A1", 347, 64,449, 59,34, 7},
+	[24] = {"Model 19 Revolver", 348, 242,230, 84,42, 6},
+	[31] = {"Thompson 1928", 356, 61,415, 119,33, 50},
+	[30] = {"M1A1 Thompson", 355, 176,448, 112,34, 30},
+	[25] = {"Remington Model 870 Field gun", 349, 105,340, 138,22, 8},
+	[29] = {"M3 Grease Gun", 353, 0,0, 106,59, 30},
+	[33] = {"M1 Garand", 357, 105,313, 143,26, 8},
+	[22] = {"Model 12 Revolver", 346, 123,449, 53,38, 6},
+	[34] = {"Kar98k", 358, 64,487, 135,25, 5},
 
 	[16] = {"grenade", 342, 268,482, 19,30, 0},
 	[5] = {"bat", 336, 124,188, 119,29, 0},
@@ -20,11 +20,13 @@ local weapon = {
 }
 
 function displayLoadedRes ( res )--старт ресурсов
+	local weaponSkill = {"poor","std","pro"}
+
 	for k,v in pairs(weapon) do
 		if k > 18 then
-			setWeaponProperty(k, "poor", "maximum_clip_ammo", v[7])
-			setWeaponProperty(k, "std", "maximum_clip_ammo", v[7])
-			setWeaponProperty(k, "pro", "maximum_clip_ammo", v[7])
+			for _,j in pairs(weaponSkill) do
+				setWeaponProperty(k, j, "maximum_clip_ammo", v[7]+1)
+			end
 		end
 	end
 

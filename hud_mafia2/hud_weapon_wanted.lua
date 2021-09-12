@@ -17,14 +17,15 @@ end)
 function createText ()
 	if getElementData(localPlayer, "radar_mafia2") then return end
 
-	local weaponpl = getPedWeapon(localPlayer)
-	if weaponpl and getElementData(root, "custom_weapon") and getElementData(root, "custom_weapon")[weaponpl] then
-		local v = getElementData(root, "custom_weapon")[weaponpl]
+	local weapon_p = getPedWeapon(localPlayer)
+	local weapon_d = getElementData(root, "custom_weapon")
+	if weapon_p and weapon_d and weapon_d[weapon_p] then
+		local v = getElementData(root, "custom_weapon")[weapon_p]
 		dxDrawImageSection(50, screenHeight-50-(v[6]*height_hd), v[5]*height_hd, v[6]*height_hd, v[3], v[4], v[5], v[6], 'hud/hud2.png')
-		if weaponpl == 25 then
-			dxdrawtext ( getPedTotalAmmo(localPlayer), 55+(v[5]*height_hd), screenHeight-50-15, 0.0, 0.0, tocolor ( 255, 255, 255, 255 ), 1*height_hd, "default-bold" )
-		elseif weaponpl ~= 5 and weaponpl ~= 4 and weaponpl ~= 1 and weaponpl ~= 3 and weaponpl ~= 6 and weaponpl ~= 15 then
+		if getSlotFromWeapon( weapon_p ) == 8 then
 			dxdrawtext ( getPedAmmoInClip(localPlayer).." | "..(getPedTotalAmmo(localPlayer)-getPedAmmoInClip(localPlayer)), 55+(v[5]*height_hd), screenHeight-50-15, 0.0, 0.0, tocolor ( 255, 255, 255, 255 ), 1*height_hd, "default-bold" )
+		elseif getSlotFromWeapon( weapon_p ) ~= 0 and getSlotFromWeapon( weapon_p ) ~= 1 and getSlotFromWeapon( weapon_p ) ~= 10 then
+			dxdrawtext ( (getPedAmmoInClip(localPlayer)-1).." | "..(getPedTotalAmmo(localPlayer)-getPedAmmoInClip(localPlayer)), 55+(v[5]*height_hd), screenHeight-50-15, 0.0, 0.0, tocolor ( 255, 255, 255, 255 ), 1*height_hd, "default-bold" )
 		end
 	end
 

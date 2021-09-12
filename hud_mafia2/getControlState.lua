@@ -8,7 +8,7 @@ local states={
 }
 local mta_getControlState=getPedControlState
 
-function getPedControlState(control)
+function getPedControlState_f(control)
 	local state=states[control]
 	if state==nil then
 		return mta_getControlState(control)

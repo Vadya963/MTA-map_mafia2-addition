@@ -1,24 +1,30 @@
 <meta>
+	<min_mta_version server="1.5.7" client="1.5.7" />
+	
 	<script src="replace_weapon.lua" type="client"/>
+	<script src="sounds_weapon_c.lua" type="client"/>
+	<script src="sounds_weapon_s.lua" type="server"/>
+	<script src="reload_c.lua" type="client"/>
+	<script src="reload_s.lua" type="server"/>
 
-	<file src="silenced.dff"/>
-	<file src="silenced.txd"/>
-	<file src="colt45.dff"/>
-	<file src="colt45.txd"/>
-	<file src="desert_eagle.dff"/>
-	<file src="desert_eagle.txd"/>
-	<file src="m4.dff"/>
-	<file src="m4.txd"/>
-	<file src="ak47.dff"/>
-	<file src="ak47.txd"/>
-	<file src="chromegun.dff"/>
-	<file src="chromegun.txd"/>
-	<file src="mp5.dff"/>
-	<file src="mp5.txd"/>
-	<file src="rifle.dff"/>
-	<file src="rifle.txd"/>
-	<file src="sniper.dff"/>
-	<file src="sniper.txd"/>
+	<file src="Colt M1911A1.dff"/>
+	<file src="Colt M1911A1.txd"/>
+	<file src="Model 12 Revolver.dff"/>
+	<file src="Model 12 Revolver.txd"/>
+	<file src="Model 19 Revolver.dff"/>
+	<file src="Model 19 Revolver.txd"/>
+	<file src="Thompson 1928.dff"/>
+	<file src="Thompson 1928.txd"/>
+	<file src="M1A1 Thompson.dff"/>
+	<file src="M1A1 Thompson.txd"/>
+	<file src="Remington Model 870 Field gun.dff"/>
+	<file src="Remington Model 870 Field gun.txd"/>
+	<file src="M3 Grease Gun.dff"/>
+	<file src="M3 Grease Gun.txd"/>
+	<file src="M1 Garand.dff"/>
+	<file src="M1 Garand.txd"/>
+	<file src="Kar98k.dff"/>
+	<file src="Kar98k.txd"/>
 	<file src="grenade.dff"/>
 	<file src="grenade.txd"/>
 	<file src="bat.dff"/>
@@ -35,4 +41,14 @@
 	<file src="shovel.txd"/>
 	<file src="gun_cane.dff"/>
 	<file src="gun_cane.txd"/>
+
+	<file src="sounds_weapon/Model 19 Revolver.wav"/>
+	<file src="sounds_weapon/Thompson 1928.wav"/>
+	<file src="sounds_weapon/Colt M1911A1.wav"/>
+	<file src="sounds_weapon/Remington Model 870 Field gun.wav"/>
+	<file src="sounds_weapon/M3 Grease Gun.wav"/>
+	<file src="sounds_weapon/M1A1 Thompson.wav"/>
+	<file src="sounds_weapon/M1 Garand.wav"/>
+	<file src="sounds_weapon/Model 12 Revolver.wav"/>
+	<file src="sounds_weapon/Kar98k.wav"/>
 </meta>
