@@ -7,8 +7,6 @@ local function reloadWeapon()
 		if weapon_p == 25 or weapon_p == 33 or weapon_p == 34 then
 			if getPedTotalAmmo(client) >= weapon_d[weapon_p][7]+1 then 
 				setWeaponAmmo( client, weapon_p, getPedTotalAmmo(client), weapon_d[weapon_p][7]+1 )
-			else
-				setWeaponAmmo( client, weapon_p, getPedTotalAmmo(client), getPedTotalAmmo(client) )
 			end
 		end
 	end

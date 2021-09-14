@@ -14,7 +14,7 @@ local blockedTasks = {
 }
 
 local function reloadTimer()
-	if blockedTasks[getPedSimplestTask(localPlayer)] or getPedControlState( localPlayer, "aim_weapon" ) then
+	if blockedTasks[getPedSimplestTask(localPlayer)] or getPedControlState( localPlayer, "aim_weapon" ) or getPedControlState( localPlayer, "fire" ) then
 		return
 	end
 
