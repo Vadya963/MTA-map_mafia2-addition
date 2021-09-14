@@ -181,20 +181,20 @@ function setRadioRandom(wave_radio)
 	sound[wave_radio][5] = getTickCount()
 	sound[wave_radio][6] = 0
 
-	triggerClientEvent( getElementsByType( "player" ), "event_setRadioSound", root, wave_radio, sound[wave_radio] )
+	triggerClientEvent( getElementsByType( "player" ), "e_setRadioSound", root, wave_radio, sound[wave_radio] )
 end
 
 for k,v in pairs({"delta","empire","classic"}) do
 	setRadioRandom(v)
 end
 
-addEvent( "event_onPlayerJoin", true )
-addEventHandler( "event_onPlayerJoin", root, 
+addEvent( "e_onPlayerJoin", true )
+addEventHandler( "e_onPlayerJoin", root, 
 function () 
 --The source of this event is the player who joined.
 --This event is not cancellable.
 	for k,v in pairs({"delta","empire","classic"}) do
-		triggerClientEvent( source, "event_setRadioSound", root, v, sound[v] )
+		triggerClientEvent( source, "e_setRadioSound", root, v, sound[v] )
 	end
 end)
 
@@ -206,7 +206,7 @@ function (theKey, oldValue, newValue)
 --This event cannot be cancelled using cancelEvent. To reverse the effect, use setElementData with the old value.
 	if getElementType( source ) == "vehicle" and theKey == "radio" then
 		for k,v in pairs(getVehicleOccupants( source )) do
-			triggerClientEvent( v, "event_setRadio", client, getElementData( source, "radio" ) )
+			triggerClientEvent( v, "e_setRadio", client, getElementData( source, "radio" ) )
 		end
 	end
 end)

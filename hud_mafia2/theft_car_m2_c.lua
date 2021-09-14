@@ -34,12 +34,12 @@ local theft_t = {
 
 addEventHandler( "onClientResourceStart", resourceRoot,
 function ( startedRes )
-	bindKey("e", "down", e_fun)
-	bindKey("s", "both", s_fun)
-	bindKey("m", "down", f_fun)
+	bindKey("e", "down", e_f)
+	bindKey("s", "both", s_f)
+	bindKey("m", "down", f_f)
 end)
 
-function f_fun ( key, keyState )
+function f_f ( key, keyState )
 	theft = not theft
 	showCursor( theft )
 	setCursorPosition( 0,0 )
@@ -63,7 +63,7 @@ function f_fun ( key, keyState )
 	end
 end
 
-function s_fun ( key, keyState )
+function s_f ( key, keyState )
 	if not theft then return end
 
 	if keyState == "down" then
@@ -115,7 +115,7 @@ function s_fun ( key, keyState )
 	end
 end
 
-function e_fun ( key, keyState )
+function e_f ( key, keyState )
 	if not theft then return end
 
 	if key_table[key_state].value == true then
@@ -158,7 +158,7 @@ function e_fun ( key, keyState )
 	if key_state == 4 then
 		--евент если замок взломан успешно
 		--print("HACKER MAN")
-		f_fun()
+		f_f()
 	end
 end
 

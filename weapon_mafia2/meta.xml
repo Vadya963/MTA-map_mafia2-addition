@@ -1,11 +1,11 @@
 <meta>
 	<min_mta_version server="1.5.7" client="1.5.7" />
-	
+	<script src="sounds_weapon_s.lua" type="server"/>
+	<script src="reload_s.lua" type="server"/>
+
 	<script src="replace_weapon.lua" type="client"/>
 	<script src="sounds_weapon_c.lua" type="client"/>
-	<script src="sounds_weapon_s.lua" type="server"/>
 	<script src="reload_c.lua" type="client"/>
-	<script src="reload_s.lua" type="server"/>
 
 	<file src="Colt M1911A1.dff"/>
 	<file src="Colt M1911A1.txd"/>

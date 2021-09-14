@@ -33,8 +33,8 @@ function setRadio(wave_radio)
 		setSoundVolume( sound[wave_radio], 1.0 )
 	end
 end
-addEvent( "event_setRadio", true )
-addEventHandler( "event_setRadio", resourceRoot, setRadio )
+addEvent( "e_setRadio", true )
+addEventHandler( "e_setRadio", resourceRoot, setRadio )
 
 function setRadioSound(wave_radio,table)
 	if isElement(sound[wave_radio]) then destroyElement( sound[wave_radio] ) end
@@ -47,13 +47,13 @@ function setRadioSound(wave_radio,table)
 		setSoundVolume( sound[wave_radio], 0.0 )
 	end
 end
-addEvent( "event_setRadioSound", true )
-addEventHandler( "event_setRadioSound", resourceRoot, setRadioSound )
+addEvent( "e_setRadioSound", true )
+addEventHandler( "e_setRadioSound", resourceRoot, setRadioSound )
 
 addEventHandler( "onClientResourceStart", resourceRoot, 
 function (startedResource) 
 --The source of this event is the started resource's root element.
-	triggerServerEvent( "event_onPlayerJoin", localPlayer )
+	triggerServerEvent( "e_onPlayerJoin", localPlayer )
 
 	bindKey ( ",", "down", function ( ... )
 		local vehicle = getPedOccupiedVehicle ( localPlayer )
