@@ -14,6 +14,8 @@ local vehicles = {
 	[433] = "GAI 353 Military Truck",
 	[456] = "Smith Truck",
 	[500] = "Walter Military",
+	[596] = "Smith Custom 200 Police Special",
+	[597] = "Culver Empire Police Special",
 
 	--2 дверные
 	--спорт
@@ -39,8 +41,6 @@ local vehicles = {
 	--4 дверные
 	[409] = "Lassiter Series 75 Hollywood",
 	[426] = "Smith Custom 200",
-	[596] = "Smith Custom 200 Police Special",
-	[597] = "Culver Empire Police Special",
 	[445] = "Smith Deluxe Station Wagon",
 	[604] = "Shubert 38",
 	[507] = "Houston Wasp",
@@ -48,6 +48,7 @@ local vehicles = {
 	[585] = "Potomac Indian",
 	[551] = "Packard Standard Eight 1948 Touring Sedan",
 	[546] = "Lassiter Series 69",
+	[404] = "Smith V8",
 }
 
 local wheel = {
